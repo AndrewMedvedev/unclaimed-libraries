@@ -1,0 +1,47 @@
+[project]
+name = "unclaimed-libraries"
+version = "0.1.0"
+description = "CLI tool for detecting unused dependencies in Python projects"
+readme = "README.md"
+requires-python = ">=3.13"
+authors = [
+    {name = "Andre", email = "andrejmedvedev2713@gmail.com"},
+]
+license = {text = "MIT"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Environment :: Console",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Quality Assurance",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "requests>=2.33.1",
+    "rich>=15.0.0",
+]
+
+[project.scripts]
+unclib = "unclaimed_libraries.cli:main"
+
+[project.optional-dependencies]
+dev = [
+    "setuptools>=82.0.1",
+    "wheel>=0.47.0",
+    "twine>=6.2.0",
+    "types-requests>=2.33.0.20260408",
+]
+
+[project.urls]
+Repository = "https://github.com/AndrewMedvedev/unclaimed-libraries"
+Issues = "https://github.com/AndrewMedvedev/unclaimed-libraries/issues"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
