@@ -46,4 +46,4 @@ def get_dependency_names() -> set:
     # dev (старый формат)
     deps.update(poetry.get("dev-dependencies", {}).keys())
 
-    return deps
+    return {i.lower() for i in deps}

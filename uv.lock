@@ -450,12 +450,11 @@ wheels = [
 
 [[package]]
 name = "unclaimed-libraries"
-version = "0.1.0"
+version = "0.1.2"
 source = { editable = "." }
 dependencies = [
     { name = "requests" },
     { name = "rich" },
-    { name = "types-requests" },
 ]
 
 [package.optional-dependencies]
@@ -472,7 +471,6 @@ requires-dist = [
     { name = "rich", specifier = ">=15.0.0" },
     { name = "setuptools", marker = "extra == 'dev'", specifier = ">=82.0.1" },
     { name = "twine", marker = "extra == 'dev'", specifier = ">=6.2.0" },
-    { name = "types-requests", specifier = ">=2.33.0.20260408" },
     { name = "types-requests", marker = "extra == 'dev'", specifier = ">=2.33.0.20260408" },
     { name = "wheel", marker = "extra == 'dev'", specifier = ">=0.47.0" },
 ]

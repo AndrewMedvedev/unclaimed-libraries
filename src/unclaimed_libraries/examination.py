@@ -28,7 +28,7 @@ def classify_from_pypi(package_name: str) -> str:  # noqa: PLR0911
     if not info:
         return "unknown"
 
-    if package_name in {"stdlib-list", "unclaimed-libraries"} or "types":  # noqa: SIM222
+    if package_name in {"stdlib-list", "unclaimed-libraries"} or "types" in package_name:
         return "types"
 
     classifiers = info.get("classifiers", [])

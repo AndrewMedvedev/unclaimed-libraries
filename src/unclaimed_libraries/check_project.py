@@ -157,9 +157,13 @@ def extract_imports_from_file(file_path: Path, local_prefixes: set[str]) -> set[
             continue
         if lib in local_prefixes:
             continue
-        true_name = MAPPING.get(lib)
-        if true_name:
-            filtered.update(true_name)
+        true_names = MAPPING.get(lib)
+        if true_names:
+            names = [i.lower() for i in true_names]
+            names.append(lib)
+            filtered.update(names)
+        else:
+            filtered.add(lib)
     return filtered
 
 
