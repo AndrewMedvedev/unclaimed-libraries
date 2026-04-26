@@ -9,10 +9,13 @@
 import ast
 from collections.abc import Iterable
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from importlib.metadata import packages_distributions
 from os import PathLike
 from pathlib import Path
 
 from .constants import STD_LIB_MODULES
+
+MAPPING = packages_distributions()
 
 
 # ----------------------------------------------------------------------
@@ -126,7 +129,7 @@ def _extract_dynamic_import(node: ast.Call, libraries: set[str]) -> None:
         libraries.add(lib_name)  # type: ignore  # noqa: PGH003
 
 
-def extract_imports_from_file(file_path: Path, local_prefixes: set[str]) -> set[str]:
+def extract_imports_from_file(file_path: Path, local_prefixes: set[str]) -> set[str]:  # noqa: C901
     """
     Извлекает имена сторонних библиотек из одного .py файла.
     Относительные импорты и __future__ игнорируются.
@@ -154,7 +157,9 @@ def extract_imports_from_file(file_path: Path, local_prefixes: set[str]) -> set[
             continue
         if lib in local_prefixes:
             continue
-        filtered.add(lib)
+        true_name = MAPPING.get(lib)
+        if true_name:
+            filtered.update(true_name)
     return filtered
 
 

@@ -14,7 +14,7 @@ def unclaimed_libraries(
 ) -> list[str]:
     depends = get_dependency_names()
     imports = analyze_project_imports(project_path, exclude_dirs, max_workers)
-    unused = depends - imports
+    unused = depends & imports
     result: list = []
     for i in unused:
         library_type = classify_from_pypi(i)
