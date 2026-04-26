@@ -19,7 +19,7 @@
 ## 📦 Установка
 
 ```bash
-pip install unclaimed-libraries
+poetry add unclaimed-libraries
 ```
 
 Or using uv:
@@ -47,6 +47,8 @@ unclib . --exclude legacy scripts
 
 Приветствуются issues и pull request’ы!
 Пожалуйста, сначала создайте issue для обсуждения значительных изменений.
+
+## Библиотека работает только при наличие интернета
 
 
 **Распространяется под лицензией MIT. Подробности в файле LICENSE.**
