@@ -62,6 +62,8 @@ def main() -> int:
         console.print(f"[red]Error while analyzing the project:[/red] {e}")
         return 2
 
+    print_result(result)
+
     return 1 if result else 0
 
 
